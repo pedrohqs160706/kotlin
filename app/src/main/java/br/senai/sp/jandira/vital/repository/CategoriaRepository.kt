@@ -13,6 +13,7 @@ class CategoriaRepository {
     fun mostrarTodasAsCategorias(): List<Categoria> {
 
         // Informacoes das categorias
+        
 
         // Categoria Telemedicina
         val telemedicina = Categoria()

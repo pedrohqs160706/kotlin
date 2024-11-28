@@ -2,6 +2,7 @@ package br.senai.sp.jandira.vital.screens
 
 
 import android.util.Log
+import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -44,6 +45,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -68,81 +70,400 @@ fun HistoricoDeConsultas() {
     val categoria = CategoriaRepository().mostrarTodasAsCategorias()
 
     VitalTheme {
-        Surface {
+        Column (
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = Color(0xffEAEAEA))
+        ){
             Column (
                 modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = Color.Red)
+                    .fillMaxWidth()
+                    .height(130.dp)
+                    .background(
+                        color = Color(0xff2954C7),
+                        shape = RoundedCornerShape(bottomStart = 7.dp, bottomEnd = 7.dp)
+                    )
             ){
+
+
+                    
+                    Image(
+                        painter = painterResource(R.drawable.setaesq),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .width(20.dp)
+                            .height(20.dp)
+                            .offset(y = 15.dp, x = 10.dp)
+
+                    )
+
+                    Text(
+                        "Consultas",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
+                        modifier = Modifier
+                            .align(alignment = Alignment.CenterHorizontally)
+
+                    )
+
+                Spacer(modifier = Modifier.height(40.dp))
 
                 Column (
                     modifier = Modifier
-                        .width(120.dp)
-                        .height(120.dp)
-                        .background(color = Color.Gray)
-                        .padding(80.dp)
-                ){  }
-            }
-            Box(
-                modifier = Modifier
-                    .background(
-                        Color(0xFF2954C7),
-                        shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp)
-                    )
-                    .fillMaxWidth()
-                    .height(130.dp)
-                    .offset(y = -16.dp)
-            ){
+                        .height(23.dp)
+                        .width(93.dp)
+                        .background(color = Color(0xffC6E1FF), shape = RoundedCornerShape(10.dp))
+                        .align(alignment = Alignment.CenterHorizontally)
+                ){
 
-                Icon(
-                    imageVector = Icons.Filled.ArrowBack,
-                    contentDescription = "",
-                    tint = Color(0xFFFFFFFF),
-                    modifier = Modifier
-                        .align(Alignment.CenterStart) // Alinha à esquerda, centralizado verticalmente
-                        .padding(start = 16.dp) // Adiciona um espaçamento à esquerda
-                )
-                Text(
-                    "Consultas",
-                    color = Color.White,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .align(Alignment.Center) // Centraliza no meio
-
-                )
-
-
-
-                Box(
-                    modifier = Modifier
-                        .height(25.dp)
-                        .align(Alignment.Center)
-                        .offset(y = 40.dp)
-                        .width(90.dp)
-                        .fillMaxWidth()
-                        .background(Color(0xFFC6E1FF), shape = RoundedCornerShape(20.dp))
-                        .zIndex(1f)
-
-                ) {
                     Text(
-                        text = "Histórico",
-                        fontSize = 12.sp,
+                        "Histórico",
+                        fontSize = 10.sp,
                         fontWeight = FontWeight.Medium,
-                        color = Color(0xFF565454),
                         modifier = Modifier
-                            .align(Alignment.Center)
-
+                            .align(alignment = Alignment.CenterHorizontally)
                     )
-
                 }
 
 
+            }
 
+            Text(
+                "Próximas",
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier
+                    .padding(top = 10.dp, start = 20.dp)
+            )
 
+            Column (
+                modifier = Modifier
+                    .width(355.dp)
+                    .height(131.dp)
+                    .padding(top = 10.dp)
+                    .background(color = Color(0xffFFFFFF), shape = RoundedCornerShape(6.dp))
+                    .align(alignment = Alignment.CenterHorizontally)
+
+            ) {
+                Row {
+
+                    Text(
+                        "Especialidade:",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier
+                            .padding(top = 10.dp, start = 15.dp)
+                    )
+
+                    Spacer(modifier = Modifier.width(225.dp))
+
+                    Image(
+                        painter = painterResource(R.drawable.opcoes),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .width(50.dp)
+                            .height(30.dp)
+
+                    )
+                }
+
+                Text(
+                    "Médico:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xff0073DE),
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Text(
+                    "Data:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Row {
+
+                    Column(
+                        modifier = Modifier
+                            .width(111.dp)
+                            .height(27.dp)
+                            .padding(start = 15.dp)
+                            .background(
+                                color = Color(0xffFAF2AB),
+                                shape = RoundedCornerShape(10.dp)
+                            )
+                    ) {
+                        Text(
+                            "Em andamento",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Medium,
+                            modifier = Modifier
+                                .align(alignment = Alignment.CenterHorizontally)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(160.dp))
+
+                    Text(
+                        "Horário:",
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
+
+            Text(
+                "Anteriores",
+                fontWeight = FontWeight.Medium,
+                fontSize = 14.sp,
+                modifier = Modifier
+                    .padding(start = 20.dp, top = 10.dp)
+            )
+
+            Column (
+                modifier = Modifier
+                    .width(355.dp)
+                    .height(131.dp)
+                    .padding(top = 10.dp)
+                    .background(color = Color(0xffFFFFFF), shape = RoundedCornerShape(6.dp))
+                    .align(alignment = Alignment.CenterHorizontally)
+
+            ){
+                Row {
+
+                    Text(
+                        "Especialidade:",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier
+                            .padding(top = 10.dp, start = 15.dp)
+                    )
+
+                    Spacer(modifier = Modifier.width(225.dp))
+
+                    Image(
+                        painter = painterResource(R.drawable.opcoes),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .width(50.dp)
+                            .height(30.dp)
+
+                    )
+                }
+
+                Text(
+                    "Médico:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xff0073DE),
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Text(
+                    "Data:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Row {
+
+                    Column(
+                        modifier = Modifier
+                            .width(111.dp)
+                            .height(27.dp)
+                            .padding(start = 15.dp)
+                            .background(
+                                color = Color(0xff54FF51),
+                                shape = RoundedCornerShape(10.dp)
+                            )
+                    ) {
+                        Text(
+                            "Concluída",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Medium,
+                            modifier = Modifier
+                                .align(alignment = Alignment.CenterHorizontally)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(160.dp))
+
+                    Text(
+                        "Horário:",
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
+
+            Column (
+                modifier = Modifier
+                    .width(355.dp)
+                    .height(131.dp)
+                    .padding(top = 10.dp)
+                    .background(color = Color(0xffFFFFFF), shape = RoundedCornerShape(6.dp))
+                    .align(alignment = Alignment.CenterHorizontally)
+
+            ){
+                Row {
+
+                    Text(
+                        "Especialidade:",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier
+                            .padding(top = 10.dp, start = 15.dp)
+                    )
+
+                    Spacer(modifier = Modifier.width(225.dp))
+
+                    Image(
+                        painter = painterResource(R.drawable.opcoes),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .width(50.dp)
+                            .height(30.dp)
+
+                    )
+                }
+
+                Text(
+                    "Médico:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xff0073DE),
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Text(
+                    "Data:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Row {
+
+                    Column(
+                        modifier = Modifier
+                            .width(111.dp)
+                            .height(27.dp)
+                            .padding(start = 15.dp)
+                            .background(
+                                color = Color(0xffFC4D4D),
+                                shape = RoundedCornerShape(10.dp)
+                            )
+                    ) {
+                        Text(
+                            "Cancelada",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Medium,
+                            modifier = Modifier
+                                .align(alignment = Alignment.CenterHorizontally)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(160.dp))
+
+                    Text(
+                        "Horário:",
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
+
+            Column (
+                modifier = Modifier
+                    .width(355.dp)
+                    .height(131.dp)
+                    .padding(top = 10.dp)
+                    .background(color = Color(0xffFFFFFF), shape = RoundedCornerShape(6.dp))
+                    .align(alignment = Alignment.CenterHorizontally)
+
+            ){
+                Row {
+
+                    Text(
+                        "Especialidade:",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier
+                            .padding(top = 10.dp, start = 15.dp)
+                    )
+
+                    Spacer(modifier = Modifier.width(225.dp))
+
+                    Image(
+                        painter = painterResource(R.drawable.opcoes),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .width(50.dp)
+                            .height(30.dp)
+
+                    )
+                }
+
+                Text(
+                    "Médico:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xff0073DE),
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Text(
+                    "Data:",
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier
+                        .padding(start = 15.dp)
+                )
+
+                Row {
+
+                    Column(
+                        modifier = Modifier
+                            .width(111.dp)
+                            .height(27.dp)
+                            .padding(start = 15.dp)
+                            .background(
+                                color = Color(0xffBCBCBC),
+                                shape = RoundedCornerShape(10.dp)
+                            )
+                    ) {
+                        Text(
+                            "Não compareceu",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Medium,
+                            modifier = Modifier
+                                .align(alignment = Alignment.CenterHorizontally)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(160.dp))
+
+                    Text(
+                        "Horário:",
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
             }
 
         }
+
+
     }
 
 

@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.vital
 
+import android.graphics.Camera
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.senai.sp.jandira.vital.screens.Camera
 import br.senai.sp.jandira.vital.screens.TelaInicial1
 import br.senai.sp.jandira.vital.screens.TelaInicial2
 import br.senai.sp.jandira.vital.screens.TelaInicial3
@@ -37,10 +39,10 @@ class MainActivity : ComponentActivity() {
                   NavHost(
                       navController = controleDeNavegacao ,
                       // Quando eu abrir a aplicacao qual a tela que vai aparecer
-                      startDestination = "telaInicial1" // essa palavra login é criada, mas esta referente a tela que queremos
+                      startDestination = "Camera" // essa palavra login é criada, mas esta referente a tela que queremos
                   ){
                       // Todas as telas tem que ficar aqui
-                      composable(route = "telaInicial1"){ TelaInicial1(controleDeNavegacao) }
+                      composable(route = "Camera"){ Camera(controleDeNavegacao) }
                       composable(route = "telaInicial2"){  TelaInicial2(controleDeNavegacao) }
                       composable(route = "telaInicial3"){ TelaInicial3(controleDeNavegacao) }
                   }

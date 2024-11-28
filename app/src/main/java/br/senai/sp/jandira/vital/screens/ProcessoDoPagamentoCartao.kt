@@ -338,7 +338,7 @@ fun ProcessoDoPagamentoCartao() {
 
                     Column {
                         Image(
-                            painter = painterResource(R.drawable.favorito),
+                            painter = painterResource(R.drawable.fav),
                             contentDescription = "",
                             modifier = Modifier
                                 .width(22.dp)
